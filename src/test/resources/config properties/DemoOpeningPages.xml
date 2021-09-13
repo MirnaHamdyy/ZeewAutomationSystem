@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Verify That all pages open with getting any error" thread-count="1">
+
+
+    <test name="Pickup Orders">
+        <classes>
+            <class name="eu.testcases.PickupOrdersTest"/>
+        </classes>
+    </test>
+
+    <test name="Customers">
+        <classes>
+            <class name="eu.testcases.CustomersTest"/>
+        </classes>
+    </test>
+
+    <test name="App Config">
+        <classes>
+            <class name="eu.testcases.AppConfigTest"/>
+        </classes>
+    </test>
+
+    <test name="Custom Domain">
+        <classes>
+            <class name="eu.testcases.CustomDomainTest"/>
+        </classes>
+    </test>
+
+    <test name="Market Place">
+        <classes>
+            <class name="eu.testcases.MarketPlaceTest"/>
+        </classes>
+    </test>
+
+
+    <test name="My Plan">
+        <classes>
+            <class name="eu.testcases.MyPlanTest"/>
+        </classes>
+    </test>
+
+    <test name="My Cards">
+        <classes>
+            <class name="eu.testcases.MyCardsTest"/>
+        </classes>
+    </test>
+
+    <test name="Store Offers">
+        <classes>
+            <class name="eu.testcases.StoreOffersTest"/>
+        </classes>
+    </test>
+
+    <test name="Referral Test">
+        <classes>
+            <class name="eu.testcases.ReferralTest"/>
+        </classes>
+    </test>
+
+    <test name="Vouchers">
+        <classes>
+            <class name="eu.testcases.VoucherTest"/>
+        </classes>
+    </test>
+
+    <test name="Mobile Sliders">
+        <classes>
+            <class name="eu.testcases.MobileSliderTest"/>
+        </classes>
+    </test>
+
+    <test name="CuisinePages">
+        <classes>
+            <class name="eu.testcases.CuisinesTest">
+                <methods>
+                    <exclude name="addNewCuisineTest"/>
+                    <exclude name="checkCuisineDefaultStatusIsDisabled"/>
+                    <exclude name="enableCuisineDefaultValue"/>
+                    <exclude name="verifyNavigationToEditCuisinePageTest"/>
+                    <exclude name="editCuisineTest"/>
+                    <exclude name="deleteCuisineTest"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+</suite>

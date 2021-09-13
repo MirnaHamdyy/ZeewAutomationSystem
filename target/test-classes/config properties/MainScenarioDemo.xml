@@ -1,0 +1,16 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Main scenarios" >
+
+    <test name="Main MenuItem Scenario Demo">
+        <classes>
+            <class name="eu.testcases.MenuItemsTest">
+                <methods>
+                    <include name="selectAndAddCategoryAndAddMenuForRestaurant"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

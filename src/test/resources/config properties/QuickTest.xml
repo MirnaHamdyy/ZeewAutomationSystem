@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Opening Pages Test"  thread-count="1">
+    <test name= "First Test">
+        <groups>
+            <run>
+                <include name="Opening Pages"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="eu.testcases.SignUpTest"/>
+            <class name="eu.testcases.PickupOrdersTest"/>
+<!--            <class name="eu.testcases.DeliveryOrdersTest"/>-->
+<!--            <class name="eu.testcases.HaveIssuesTest"/>-->
+        </classes>
+
+    </test>
+</suite>

@@ -1,0 +1,342 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Verify That all pages open with getting any error" thread-count="1">
+
+    <test name="Users Analytics Orders">
+        <classes>
+            <class name="eu.testcases.UsersAnalyticsTest"/>
+        </classes>
+    </test>
+
+    <test name="Orders Analytics Orders">
+        <classes>
+            <class name="eu.testcases.OrdersAnalyticsTest"/>
+        </classes>
+    </test>
+
+    <test name="Stores Analytics Orders">
+        <classes>
+            <class name="eu.testcases.StoresAnalyticsTest"/>
+        </classes>
+    </test>
+
+    <test name="Drivers Analytics Orders">
+        <classes>
+            <class name="eu.testcases.DriversAnalyticsTest"/>
+        </classes>
+    </test>
+
+
+    <test name="Pickup Orders">
+        <classes>
+            <class name="eu.testcases.PickupOrdersTest"/>
+        </classes>
+    </test>
+
+    <test name="Delivery Orders">
+        <classes>
+            <class name="eu.testcases.DeliveryOrdersTest"/>
+        </classes>
+    </test>
+
+    <test name="Have Issues">
+        <classes>
+            <class name="eu.testcases.HaveIssuesTest"/>
+        </classes>
+    </test>
+
+    <test name="Customers">
+        <classes>
+            <class name="eu.testcases.CustomersTest"/>
+        </classes>
+    </test>
+
+    <test name="App Config">
+        <classes>
+            <class name="eu.testcases.AppConfigTest"/>
+        </classes>
+    </test>
+
+    <test name="Custom Domain">
+        <classes>
+            <class name="eu.testcases.CustomDomainTest"/>
+        </classes>
+    </test>
+
+    <test name="Market Place">
+        <classes>
+            <class name="eu.testcases.MarketPlaceTest"/>
+        </classes>
+    </test>
+
+    <test name="Surcharge Settings">
+        <classes>
+            <class name="eu.testcases.SurChargeTest"/>
+        </classes>
+    </test>
+
+    <test name="Global Settings">
+        <classes>
+            <class name="eu.testcases.GlobalSettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="My Plan">
+        <classes>
+            <class name="eu.testcases.MyPlanTest"/>
+        </classes>
+    </test>
+
+    <test name="My Cards">
+        <classes>
+            <class name="eu.testcases.MyCardsTest"/>
+        </classes>
+    </test>
+
+    <test name="Store Offers">
+        <classes>
+            <class name="eu.testcases.StoreOffersTest"/>
+        </classes>
+    </test>
+
+    <test name="Referral Test">
+        <classes>
+            <class name="eu.testcases.ReferralTest"/>
+        </classes>
+    </test>
+
+    <test name="Vouchers">
+        <classes>
+            <class name="eu.testcases.VoucherTest"/>
+        </classes>
+    </test>
+
+    <test name="Rewards">
+        <classes>
+            <class name="eu.testcases.RewardsTest"/>
+        </classes>
+    </test>
+
+    <test name="Promotion Banners">
+        <classes>
+            <class name="eu.testcases.PromotionBannersTest"/>
+        </classes>
+    </test>
+
+    <test name="Mobile Sliders">
+        <classes>
+            <class name="eu.testcases.MobileSliderTest"/>
+        </classes>
+    </test>
+
+    <test name="Web Sliders">
+        <classes>
+            <class name="eu.testcases.WebSliderTest"/>
+        </classes>
+    </test>
+
+
+    <test name="CuisinePages">
+        <classes>
+            <class name="eu.testcases.CuisinesTest">
+                <methods>
+                    <exclude name="addNewCuisineTest"/>
+                    <exclude name="checkCuisineDefaultStatusIsDisabled"/>
+                    <exclude name="enableCuisineDefaultValue"/>
+                    <exclude name="verifyNavigationToEditCuisinePageTest"/>
+                    <exclude name="editCuisineTest"/>
+                    <exclude name="deleteCuisineTest"/>
+                </methods>
+            </class>
+        </classes>
+
+    </test>
+
+    <test name="CategoryPages">
+        <classes>
+            <class name="eu.testcases.CategoryPageTest">
+                <methods>
+                    <exclude name="createCategoryTest"/>
+                    <exclude name="checkCategoryDefaultStatusIsDisabled"/>
+                    <exclude name="verifyNavigationToEditCategoryPageTest"/>
+                    <exclude name="verifyIfCreatedCategoryDisabledEnableIt"/>
+                    <exclude name="editCategoryTest"/>
+                    <exclude name="deleteCategoryTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="AddonsPages">
+        <classes>
+            <class name="eu.testcases.AddonsTest">
+                <methods>
+                    <exclude name="addNewAddonsTest"/>
+                    <exclude name="verifyNavigationToEditAddonPageTest"/>
+                    <exclude name="editAddonTest"/>
+                    <exclude name="deleteAddonTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="ManageStores">
+        <classes>
+            <class name="eu.testcases.RestaurantTest">
+                <methods>
+                    <exclude name="createNewRestauarnt"/>
+                    <exclude name="checkRestaurantDefaultStatusIsDisabled"/>
+                    <exclude name="verifyNavigationToEditRestaurantPageTest"/>
+                    <exclude name="enableRestaurantDefaultValue"/>
+                    <exclude name="editRestaurantTest"/>
+                    <exclude name="deleteRestaurantTest"/>
+                </methods>
+
+            </class>
+            <class name="eu.testcases.PickupOrdersTest"/>
+        </classes>
+    </test>
+
+    <test name="MenuItems">
+        <classes>
+            <class name="eu.testcases.MenuItemsTest">
+                <methods>
+                    <exclude name="verifyToSelectNewlyCreatedRestaurant"/>
+                    <exclude name="openCategoryThroughMenuItem"/>
+                    <exclude name="selectAndAddCategoryForRestaurant"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+    <test name="Reports">
+        <classes>
+            <class name="eu.testcases.ReportsTest"/>
+        </classes>
+    </test>
+
+
+    <test name="Invoices">
+        <classes>
+            <class name="eu.testcases.InvoicesTest"/>
+        </classes>
+    </test>
+
+    <test name="Reviews">
+        <classes>
+            <class name="eu.testcases.ReviewsTest"/>
+        </classes>
+    </test>
+
+    <test name="Site Settings">
+        <classes>
+            <class name="eu.testcases.SiteSettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="Payment Settings">
+        <classes>
+            <class name="eu.testcases.PaymentSettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="ThirdPart Settings">
+        <classes>
+            <class name="eu.testcases.ThirdPartyTest"/>
+        </classes>
+    </test>
+
+    <test name="Change Password">
+        <classes>
+            <class name="eu.testcases.ChangePasswordTest"/>
+        </classes>
+    </test>
+
+    <test name="Subadmins">
+        <classes>
+            <class name="eu.testcases.SubAdminTest"/>
+        </classes>
+    </test>
+
+    <test name="Languages">
+        <classes>
+            <class name="eu.testcases.LanguageTest"/>
+        </classes>
+    </test>
+
+    <test name="CMS">
+        <classes>
+            <class name="eu.testcases.CMSTest"/>
+        </classes>
+    </test>
+
+    <test name="Autoassign Settings">
+        <classes>
+            <class name="eu.testcases.AutoAssignSettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="Email Notifications">
+        <classes>
+            <class name="eu.testcases.EmailNotificationTest"/>
+        </classes>
+    </test>
+
+
+    <test name="Push Notifications">
+        <classes>
+            <class name="eu.testcases.PushNotifictionTest"/>
+        </classes>
+    </test>
+
+    <test name="SMS Notifications">
+        <classes>
+            <class name="eu.testcases.SMSNotificationTest"/>
+        </classes>
+    </test>
+
+    <test name="Country">
+        <classes>
+            <class name="eu.testcases.CountryTest"/>
+        </classes>
+    </test>
+
+    <test name="State">
+        <classes>
+            <class name="eu.testcases.StateTest"/>
+        </classes>
+    </test>
+
+    <test name="City">
+        <classes>
+            <class name="eu.testcases.CityTest"/>
+        </classes>
+    </test>
+
+    <test name="ImportCSV">
+        <classes>
+            <class name="eu.testcases.ImportCSVTest"/>
+        </classes>
+    </test>
+
+    <test name="UploadImages">
+        <classes>
+            <class name="eu.testcases.UploadImagesTest"/>
+        </classes>
+    </test>
+
+    <test name="ZeewpaySettings">
+        <classes>
+            <class name="eu.testcases.ZeewPaySettingsTest"/>
+        </classes>
+    </test>
+
+    <test name="BecomePartner">
+        <classes>
+            <class name="eu.testcases.BecomePartnerTest"/>
+        </classes>
+    </test>
+
+</suite>
