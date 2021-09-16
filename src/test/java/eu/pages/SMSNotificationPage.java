@@ -14,7 +14,7 @@ public class SMSNotificationPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 50);
+        clickLeftSubMenuItemByIndex(40, 51);
     }
 }
 

@@ -15,7 +15,7 @@ public class InvoicesPage extends SuperAdminTemplate{
 
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(35, 37);
+        clickLeftSubMenuItemByIndex(36, 38);
     }
 
 }

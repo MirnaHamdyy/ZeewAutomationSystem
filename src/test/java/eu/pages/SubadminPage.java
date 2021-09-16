@@ -23,7 +23,7 @@ public class SubadminPage extends SuperAdminTemplate {
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 44);
+        clickLeftSubMenuItemByIndex(40, 45);
     }
 
 

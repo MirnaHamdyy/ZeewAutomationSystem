@@ -43,7 +43,7 @@ public class ZeewPaySettingsPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftMenuItemByIndex(59);
+        clickLeftMenuItemByIndex(60);
     }
 
 

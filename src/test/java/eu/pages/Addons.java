@@ -132,6 +132,6 @@ public class Addons extends SuperAdminTemplate {
 
     //Get the location by index of the management store and the adons
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(29, 34);
+        clickLeftSubMenuItemByIndex(29, 35);
     }
 }

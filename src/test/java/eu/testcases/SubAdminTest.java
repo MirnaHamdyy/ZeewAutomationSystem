@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -16,7 +15,7 @@ public class SubAdminTest extends AbstractAcceptanceLoginBefore {
     String expectedSubAdminPageURL = getPropertyValue("expectedSubadminPageURL");
     String expectedAddSubAdminPageURL = getPropertyValue("expectecdAddSubAdminsFormURL");
 
-    @Test(priority = 1, groups= {"Opening Pages"})
+    @Test(priority = 1, groups = {"Opening Pages"})
     public void verifyOpeningSubAdminPage() {
         SubadminPage subadminPage = new SubadminPage(driver);
         subadminPage.clickMenuItem();
@@ -25,8 +24,8 @@ public class SubAdminTest extends AbstractAcceptanceLoginBefore {
         Assert.assertEquals(driver.getCurrentUrl(), expectedSubAdminPageURL);
     }
 
-    @Test(priority = 2, groups= {"Opening Pages"})
-    public void verifyAddSubAdminPage() {
+    @Test(priority = 2, groups = {"Opening Pages"})
+    public void verifyOpeningAddSubAdminPage() {
         SubadminPage subadminPage = new SubadminPage(driver);
         subadminPage.clickMenuItem();
         subadminPage.getAddNewSubAdminBtn().click();
@@ -34,11 +33,4 @@ public class SubAdminTest extends AbstractAcceptanceLoginBefore {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("div:nth-child(6) > div:nth-child(1) > label:nth-child(1)"), "Address"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedAddSubAdminPageURL);
     }
-
-//    @AfterTest
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
 }

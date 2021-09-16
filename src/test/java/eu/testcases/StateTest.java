@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -33,7 +32,6 @@ public class StateTest extends AbstractAcceptanceLoginBefore {
         statePage.clickMenuItem();
         statePage.getAddNewStateBtn().click();
         WebDriverWait wait = new WebDriverWait(driver, 3); // seconds
-
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("label[for='state_name']"), "State Name"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedAddNewStateURL);
     }

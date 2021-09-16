@@ -23,6 +23,6 @@ public class CMSPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 46);
+        clickLeftSubMenuItemByIndex(40, 47);
     }
 }

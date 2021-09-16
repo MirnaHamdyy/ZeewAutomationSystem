@@ -1,13 +1,11 @@
 package eu.testcases;
 
-import eu.pages.StatePage;
 import eu.pages.ZipcodePage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -34,13 +32,6 @@ public class ZipcodeTest extends AbstractAcceptanceLoginBefore {
        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("label[for='zip_code']"), "Zipcode"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedAddNewZipcodeURL);
     }
-
-//    @AfterTest
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
 }
 
 

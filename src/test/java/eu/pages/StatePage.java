@@ -22,7 +22,7 @@ public class StatePage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(52, 54);
+        clickLeftSubMenuItemByIndex(53, 55);
     }
 
 }

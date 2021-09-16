@@ -1,17 +1,10 @@
 package eu.testcases;
 
-import eu.pages.ReviewsPage;
 import eu.pages.SiteSettingsPage;
-import eu.zeewscript.SeleniumUtility.AbstractAcceptance;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-
-import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
 public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
 
@@ -22,10 +15,6 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
-//        WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
-//        wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Site Fav Icon"));
-//        Assert.assertEquals(driver.getCurrentUrl(), expectedSiteSettingsPageURL);
-
         String actualMobileLogoTextFieldString = driver.findElement(By.xpath("//*[@id=\"site\"]/div[3]/label")).getText();
         Assert.assertTrue(actualMobileLogoTextFieldString.contains("Mobile Logo"));
     }
@@ -36,15 +25,12 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
         siteSettingsPage.getContactTab().click();
-       // WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
-        //wait until the order email title appears
-        //wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//*[@id=\"contact\"]/div[6]/label"), "Ordr Email"));
         String actualOrderEmailTextFieldString = driver.findElement(By.xpath("//*[@id=\"contact\"]/div[6]/label")).getText();
         Assert.assertTrue(actualOrderEmailTextFieldString.contains("Order Email"));
     }
 
-    @Test(priority = 3, groups= {"Opening Pages"})
-    public void verifyLocationTab() {
+    @Test(priority = 3, groups = {"Opening Pages"})
+    public void verifyOpeningLocationTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -53,8 +39,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualSiteCityTextFieldString.contains("Site City"));
     }
 
-    @Test(priority = 4, groups= {"Opening Pages"})
-    public void verifyAnalyticsCodeTab() {
+    @Test(priority = 4, groups = {"Opening Pages"})
+    public void verifyOpeningAnalyticsCodeTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -63,8 +49,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAnalyticsCodeTextFieldString.contains("Analytics Code"));
     }
 
-    @Test(priority = 5, groups= {"Opening Pages"})
-    public void verifyMailSettingTab() {
+    @Test(priority = 5, groups = {"Opening Pages"})
+    public void verifyOpeningMailSettingTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -73,8 +59,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualMailSettingTextFieldString.contains("Mail Setting"));
     }
 
-    @Test(priority = 5, groups= {"Opening Pages"})
-    public void verifyInvoicesTab() {
+    @Test(priority = 5, groups = {"Opening Pages"})
+    public void verifyOpeningInvoicesTab() {
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
         siteSettingsPage.getInvoicesTab().click();
@@ -82,8 +68,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualVATTextFieldString.contains("VAT (%)"));
     }
 
-    @Test(priority = 6, groups= {"Opening Pages"})
-    public void verifyOfflineTab() {
+    @Test(priority = 6, groups = {"Opening Pages"})
+    public void verifyOpeningOfflineTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -91,8 +77,9 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         String actualOfflineStatusTextFieldString = driver.findElement(By.xpath("//*[@id=\"offline\"]")).getText();
         Assert.assertTrue(actualOfflineStatusTextFieldString.contains("Offline Status"));
     }
-    @Test(priority = 7, groups= {"Opening Pages"})
-    public void verifyMetaTagsTab() {
+
+    @Test(priority = 7, groups = {"Opening Pages"})
+    public void verifyOpeningMetaTagsTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -101,8 +88,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualMetaDescriptionTextFieldString.contains("Meta Descriptions"));
     }
 
-    @Test(priority = 8, groups= {"Opening Pages"})
-    public void verifyOrderAssignTab() {
+    @Test(priority = 8, groups = {"Opening Pages"})
+    public void verifyOpeningOrderAssignTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -111,8 +98,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAssignMilesTextFieldString.contains("Assign Miles"));
     }
 
-    @Test(priority = 9, groups= {"Opening Pages"})
-    public void verifyLanguageTab() {
+    @Test(priority = 9, groups = {"Opening Pages"})
+    public void verifyOpeningLanguageTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -121,8 +108,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualMultipleLanguageTextFieldString.contains("Multiple Language"));
     }
 
-    @Test(priority = 10, groups= {"Opening Pages"})
-    public void verifyBankInfoTab() {
+    @Test(priority = 10, groups = {"Opening Pages"})
+    public void verifyOpeningBankInfoTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -131,8 +118,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualBankAddressTextFieldString.contains("Bank Address"));
     }
 
-    @Test(priority = 11, groups= {"Opening Pages"})
-    public void verifySocialMediaTab() {
+    @Test(priority = 11, groups = {"Opening Pages"})
+    public void verifyOpeningSocialMediaTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -142,7 +129,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 12)
-    public void verifyAppStoreLinksTab() {
+    public void verifyOpeningAppStoreLinksTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();
@@ -151,8 +138,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAppleStoreTextFieldString.contains("Apple Store"));
     }
 
-    @Test(priority = 13, groups= {"Opening Pages"})
-    public void verifyWebSettingsLinksTab() {
+    @Test(priority = 13, groups = {"Opening Pages"})
+    public void verifyOpeningWebSettingsLinksTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         siteSettingsPage.clickMenuItem();

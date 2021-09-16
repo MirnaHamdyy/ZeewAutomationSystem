@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -50,16 +49,9 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
                 //    tableRowWhereNewCategoryLocated.findElement(By.cssSelector("td[id^='status_'] button")).click();
 
                 if (tableRowWhereNewCategoryLocated.getText().contains("close")) {
-//                wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(
-//                        tableRowWhereNewCategoryLocated,
-//                        By.cssSelector("td[id^='status_'] button i.fa-close")
-//                ));
+
                     tableRowWhereNewCategoryLocated.findElement(By.cssSelector("td[id^='status_'] button")).click();
                 }
-//                Assertions.assertThat(
-//                        tableRowWhereNewCategoryLocated
-//                                .findElement(By.cssSelector("td[id^='status_'] button i")).getAttribute("class"))
-//                        .contains("check");
                 return;
             }
             nextBtn = driver.findElement(By.cssSelector(".paginate_button.next a"));

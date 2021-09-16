@@ -1,7 +1,6 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ChangePasswordPage extends SuperAdminTemplate{
@@ -15,7 +14,7 @@ public class ChangePasswordPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 43);
+        clickLeftSubMenuItemByIndex(40, 44);
     }
 
 }

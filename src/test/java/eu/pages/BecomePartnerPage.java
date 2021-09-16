@@ -13,7 +13,7 @@ public class BecomePartnerPage extends SuperAdminTemplate {
     }
 
     public void clickMenuItem() {
-        clickLeftMenuItemByIndex(60);
+        clickLeftMenuItemByIndex(61);
     }
 
 

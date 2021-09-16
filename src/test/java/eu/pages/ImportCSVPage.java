@@ -14,7 +14,7 @@ public class ImportCSVPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftMenuItemByIndex(57);
+        clickLeftMenuItemByIndex(58);
     }
 
 }

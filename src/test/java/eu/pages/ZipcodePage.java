@@ -23,6 +23,6 @@ public class ZipcodePage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(52, 56);
+        clickLeftSubMenuItemByIndex(53, 57);
     }
 }

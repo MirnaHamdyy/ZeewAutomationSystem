@@ -1,15 +1,10 @@
 package eu.pages;
 
-import net.bytebuddy.asm.Advice;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
@@ -77,7 +72,7 @@ public class CuisinePage extends SuperAdminTemplate {
 
     //Get the location by index of the management store and the cuisine
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(29, 33);
+        clickLeftSubMenuItemByIndex(29, 34);
     }
 
     public void shareCuisineCreation(String random, String cuisine) {

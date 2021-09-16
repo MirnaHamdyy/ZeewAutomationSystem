@@ -14,7 +14,7 @@ public class PushNotificationPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 49);
+        clickLeftSubMenuItemByIndex(40, 50);
     }
 }
 

@@ -1,7 +1,6 @@
 package eu.testcases;
 
 import eu.pages.AutoAssignSettingsPage;
-import eu.pages.UsersAnalyticsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,7 +17,6 @@ public class AutoAssignSettingsTest extends AbstractAcceptanceLoginBefore {
 
     @Test
     public void verifyOpeningAutoAssignSettingPage() {
-
         AutoAssignSettingsPage autoAssignSettingsPage = new AutoAssignSettingsPage(driver);
         autoAssignSettingsPage.clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds

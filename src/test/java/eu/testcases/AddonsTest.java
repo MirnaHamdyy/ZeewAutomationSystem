@@ -1,7 +1,6 @@
 package eu.testcases;
 
 import eu.pages.Addons;
-
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import eu.zeewscript.SeleniumUtility.VideoRecorder;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -12,7 +11,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -30,19 +28,16 @@ public class AddonsTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 1, groups= {"Opening Pages"})
     public void VerifyOpeningAddonsListPage() throws InterruptedException {
         Addons addonsObj = new Addons(driver);
-        //static url
         addonsObj.clickMenuItem();
         Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Manage Addon"));
-
         Assert.assertEquals(driver.getCurrentUrl(), expectedAddonsPageURL);
     }
 
     @Test(priority = 2, groups= {"Opening Pages"})
     public void VerifyOpeningAddAddonsForm() throws InterruptedException {
         Addons addonsObj = new Addons(driver);
-        //static url
         addonsObj.clickMenuItem();
         addonsObj.getAddNewAddonsBtn().click();
         Thread.sleep(5000);

@@ -29,6 +29,6 @@ public class LanguagePage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 45);
+        clickLeftSubMenuItemByIndex(40, 46);
     }
 }

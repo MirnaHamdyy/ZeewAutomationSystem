@@ -23,7 +23,7 @@ public class CityPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(52, 55);
+        clickLeftSubMenuItemByIndex(53, 56);
     }
 
 }

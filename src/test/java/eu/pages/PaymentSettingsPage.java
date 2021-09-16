@@ -23,7 +23,7 @@ public class PaymentSettingsPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 41);
+        clickLeftSubMenuItemByIndex(40, 42);
     }
 
 }

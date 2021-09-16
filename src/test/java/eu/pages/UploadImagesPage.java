@@ -1,7 +1,6 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 public class UploadImagesPage extends SuperAdminTemplate{
@@ -15,7 +14,7 @@ public class UploadImagesPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftMenuItemByIndex(58);
+        clickLeftMenuItemByIndex(59);
     }
 
 

@@ -16,7 +16,6 @@ public class ImportCSVTest extends AbstractAcceptanceLoginBefore {
 
     @Test(groups = {"Opening Pages"})
     public void verifyOpeningImportCSVPage() {
-
         ImportCSVPage importCSVPage = new ImportCSVPage(driver);
         importCSVPage.clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds

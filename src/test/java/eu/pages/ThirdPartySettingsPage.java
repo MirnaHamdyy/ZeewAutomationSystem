@@ -66,7 +66,7 @@ public class ThirdPartySettingsPage extends SuperAdminTemplate {
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 42);
+        clickLeftSubMenuItemByIndex(40, 43);
     }
 
 }

@@ -15,7 +15,7 @@ public class ReviewsPage extends SuperAdminTemplate {
 
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(35, 38);
+        clickLeftSubMenuItemByIndex(36, 39);
     }
 
 }

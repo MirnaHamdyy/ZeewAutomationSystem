@@ -2,7 +2,6 @@ package eu.testcases;
 
 import eu.pages.LanguagePage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
-import eu.zeewscript.SeleniumUtility.PropertiesFile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,6 +14,7 @@ public class LanguageTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 1, groups= {"Opening Pages"})
     public void verifyOpeningWebSiteLanguagePage() {
+
         LanguagePage languagePage = new LanguagePage(driver);
         languagePage.clickMenuItem();
         Assert.assertEquals(driver.getCurrentUrl(), expectedWebsitePageURL);
@@ -27,7 +27,4 @@ public class LanguageTest extends AbstractAcceptanceLoginBefore {
         languagePage.selectPlatformItem();
         Assert.assertEquals(driver.getCurrentUrl(), getExpectedMobilesitePageURL);
     }
-
-
-
 }

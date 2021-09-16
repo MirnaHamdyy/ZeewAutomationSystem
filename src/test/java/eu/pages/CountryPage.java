@@ -22,7 +22,7 @@ public class CountryPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(52, 53);
+        clickLeftSubMenuItemByIndex(53, 54);
     }
 
 

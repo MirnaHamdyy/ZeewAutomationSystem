@@ -1,6 +1,5 @@
 package eu.testcases;
 
-import eu.pages.AutoAssignSettingsPage;
 import eu.pages.EmailNotificationPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
@@ -24,5 +23,4 @@ public class EmailNotificationTest extends AbstractAcceptanceLoginBefore {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("#customDomainError"), "Want to unlock this feature?"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedEmailNotificationURL);
     }
-
 }

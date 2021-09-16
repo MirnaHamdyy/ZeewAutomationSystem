@@ -109,7 +109,7 @@ public class SiteSettingsPage extends SuperAdminTemplate{
 
     //Click on the promotions then cick on the Rewards page
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 40);
+        clickLeftSubMenuItemByIndex(40, 41);
     }
 
 }

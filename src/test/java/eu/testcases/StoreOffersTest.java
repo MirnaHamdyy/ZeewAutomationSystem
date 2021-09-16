@@ -1,23 +1,18 @@
 package eu.testcases;
 
-import eu.pages.MyCardPage;
 import eu.pages.StoreOffersPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.awt.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
@@ -25,7 +20,6 @@ public class StoreOffersTest extends AbstractAcceptanceLoginBefore {
 
     String expectedStoreOffersURL = getPropertyValue("expectedStoreOffersURL");
     String expectedAddNewOfferURl = getPropertyValue("expectedAddNewOfferURl");
-    //String fromDatePicker = String.format(getPropertyValue("fromDatePicker"));
 
     public void selectTodayDate() {
 
@@ -50,7 +44,6 @@ public class StoreOffersTest extends AbstractAcceptanceLoginBefore {
         storeOffersPage.getToDataPicker().sendKeys(Keys.ARROW_RIGHT);
         storeOffersPage.getToDataPicker().sendKeys(Keys.ENTER);
 
-        //storeOffersPage.setToDataPicker(tomorrowAsString);
         System.out.println("Tomorrow Date: " + tomorrowAsString);
     }
 

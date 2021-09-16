@@ -2,10 +2,8 @@ package eu.testcases;
 
 import eu.pages.RestaurantPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
-import eu.zeewscript.SeleniumUtility.VideoRecorder;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
-import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -127,7 +125,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 3)
-    public void verifyRestaurantInfo() {
+    public void verifyOpeningRestaurantInfoTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -137,7 +135,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 4)
-    public void verifyDeliveryInfo() {
+    public void verifyOpeningDeliveryInfoTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -147,7 +145,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 5)
-    public void verifyOrderInfo() {
+    public void verifyOpeningOrderInfoTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -157,7 +155,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 6)
-    public void verifyCommissionInfo() {
+    public void verifyOpeningCommissionInfoTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -167,7 +165,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 6)
-    public void verifyPaymentMethodTab() {
+    public void verifyOpeningPaymentMethodTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -177,7 +175,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 7)
-    public void verifyInvoicesTab() {
+    public void verifyOpeningInvoicesTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -187,7 +185,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 8)
-    public void verifyMetaTagTab() {
+    public void verifyOpeningMetaTagTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -196,7 +194,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualMetaTagTextField.contains("Meta Description"));
     }
 
-//    @Test(priority = 8)
+    //    @Test(priority = 8)
 //    public void verifyPromotionTab() {
 //        RestaurantPage restaurantPage = new RestaurantPage(driver);
 //        restaurantPage.clickMenuItem();
@@ -206,7 +204,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
 //        Assert.assertTrue(actualPromotionImageField.contains("Promotion Image"));
 //    }
     @Test(priority = 9)
-    public void verifyRewardPointTab() {
+    public void verifyOpeningRewardPointTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();
@@ -216,7 +214,7 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 9)
-    public void verifyBankInfoTab() {
+    public void verifyOpeningBankInfoTab() {
         RestaurantPage restaurantPage = new RestaurantPage(driver);
         restaurantPage.clickMenuItem();
         restaurantPage.getAddNewBtn().click();

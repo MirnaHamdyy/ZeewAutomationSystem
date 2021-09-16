@@ -1,12 +1,11 @@
 package eu.zeewscript.SeleniumUtility;
 
-import org.apache.commons.exec.environment.EnvironmentUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesFile {
@@ -16,7 +15,6 @@ public class PropertiesFile {
     static Properties prop = new Properties();
 
     private final static String PROP_DEVFILE_LOCACTION = "C:\\Users\\merna\\Projects\\zeew\\superadmin\\src\\test\\resources\\config properties\\devConfig.properties";
-   // private final static String PROP_LIVEFILE_LOCACTION = "C:\\Users\\merna\\Projects\\zeew\\superadmin\\src\\test\\resources\\config properties\\livConfig.properties";
 
     static {
         System.out.println(System.getProperties());

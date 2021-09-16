@@ -14,6 +14,6 @@ public class AutoAssignSettingsPage extends SuperAdminTemplate{
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 47);
+        clickLeftSubMenuItemByIndex(40, 52);
     }
 }

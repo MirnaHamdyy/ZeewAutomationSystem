@@ -1,7 +1,6 @@
 package eu.testcases;
 
 import eu.pages.DriversAnalyticsPage;
-import eu.pages.OrdersAnalyticsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -24,6 +23,4 @@ public class DriversAnalyticsTest extends AbstractAcceptanceLoginBefore {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("div:nth-child(10) div:nth-child(1) div:nth-child(1) h3:nth-child(1)"), "Total Earnings"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedDriversPageURL);
     }
-
-
 }

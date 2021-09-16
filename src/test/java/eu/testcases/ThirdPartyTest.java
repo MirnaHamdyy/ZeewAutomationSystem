@@ -1,18 +1,16 @@
 package eu.testcases;
 
-import eu.pages.SiteSettingsPage;
 import eu.pages.ThirdPartySettingsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
 
 
-    @Test(priority = 1, groups= {"Opening Pages"})
-    public void verifyGoogleApiTab() {
+    @Test(priority = 1, groups = {"Opening Pages"})
+    public void verifyOpeningGoogleApiTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -21,8 +19,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualGoogleKeyTextFieldString.contains("Google key"));
     }
 
-    @Test(priority = 2, groups= {"Opening Pages"})
-    public void verifyFirebaseKeyTab() {
+    @Test(priority = 2, groups = {"Opening Pages"})
+    public void verifyOpeningFirebaseKeyTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -31,8 +29,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAddFCMKeyTextFieldString.contains("Add FCM key which support both IOS and Android"));
     }
 
-    @Test(priority = 3, groups= {"Opening Pages"})
-    public void verifyPusherNotificationTab() {
+    @Test(priority = 3, groups = {"Opening Pages"})
+    public void verifyOpeningPusherNotificationTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -41,8 +39,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAppIdTextFieldString.contains("App id"));
     }
 
-    @Test(priority = 4, groups= {"Opening Pages"})
-    public void verifyIntercomTab() {
+    @Test(priority = 4, groups = {"Opening Pages"})
+    public void verifyOpeningIntercomTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -51,8 +49,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualAppIdTextFieldString.contains("IOS Key"));
     }
 
-    @Test(priority = 5, groups= {"Opening Pages"})
-    public void verifyMessenteTab() {
+    @Test(priority = 5, groups = {"Opening Pages"})
+    public void verifyOpeningMessenteTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -61,8 +59,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualFromNameTextFieldString.contains("From Name"));
     }
 
-    @Test(priority = 5, groups= {"Opening Pages"})
-    public void verifyDispatcherSettingsTab() {
+    @Test(priority = 5, groups = {"Opening Pages"})
+    public void verifyOpeningDispatcherSettingsTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -71,8 +69,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         Assert.assertTrue(actualDispatcherTextFieldString.contains("Dispatcher"));
     }
 
-    @Test(priority = 6, groups= {"Opening Pages"})
-    public void verifVoipSettingTab() {
+    @Test(priority = 6, groups = {"Opening Pages"})
+    public void verifOpeningVoipSettingTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
         thirdPartySettingsPage.clickMenuItem();
@@ -80,12 +78,4 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
         String actualTwilioAppSIdTextFieldString = driver.findElement(By.xpath("//*[@id=\"voip-tab\"]/div[6]/label")).getText();
         Assert.assertTrue(actualTwilioAppSIdTextFieldString.contains("Twilio App SId"));
     }
-
-//    @AfterClass
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
-
 }

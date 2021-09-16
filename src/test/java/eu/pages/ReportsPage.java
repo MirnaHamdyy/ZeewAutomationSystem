@@ -15,7 +15,7 @@ public class ReportsPage  extends SuperAdminTemplate{
 
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(35, 36);
+        clickLeftSubMenuItemByIndex(36, 37);
     }
 
 }

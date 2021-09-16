@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 
 import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
@@ -33,10 +32,4 @@ public class AppConfigTest extends AbstractAcceptanceLoginBefore {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector(".clearfix:nth-child(5) > label.col-md-3.control-label"), "Splash Screen Background Colour"));
     }
 
-//    @AfterClass
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//    }
 }

@@ -14,7 +14,7 @@ public class EmailNotificationPage extends SuperAdminTemplate {
     }
 
     public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(39, 48);
+        clickLeftSubMenuItemByIndex(40, 49);
     }
 }
 
