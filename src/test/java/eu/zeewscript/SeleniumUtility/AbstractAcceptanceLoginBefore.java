@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -29,7 +28,7 @@ public class AbstractAcceptanceLoginBefore {
 
         WebDriverManager.chromedriver().getDownloadedDriverPath();
         ChromeOptions opt = new ChromeOptions();
-        opt.addArguments("headless");
+     //   opt.addArguments("headless");
         driver = new ChromeDriver(opt);
         driver.manage().window().maximize();
     }
@@ -58,10 +57,10 @@ public class AbstractAcceptanceLoginBefore {
         Assert.assertEquals(driver.getCurrentUrl(), superAdminURL);
     }
 
-    @AfterMethod
-    public void teardown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterMethod
+//    public void teardown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+    // }
 }

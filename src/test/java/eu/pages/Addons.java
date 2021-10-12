@@ -2,6 +2,7 @@ package eu.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -25,33 +26,33 @@ public class Addons extends SuperAdminTemplate {
     @FindBy(id = "mainaddons_name")
     WebElement mainAddonNameInput;
 
-    @FindBy(id= "mainaddons_mini_count")
+    @FindBy(id = "mainaddons_mini_count")
     WebElement mainMinimumCountInput;
 
-    @FindBy(id= "mainaddons_count")
+    @FindBy(id = "mainaddons_count")
     WebElement mainMaximumCountInput;
 
-    @FindBy(id= "subaddons_name_0")
+    @FindBy(id = "subaddons_name_0")
     WebElement subAddonNameInput;
 
-    @FindBy(id="subaddons_price_0")
+    @FindBy(id = "subaddons_price_0")
     WebElement subAddonPriceInput;
 
     //Locator of the add new subaddon button
-    @FindBy(css= "div.col-md-6.col-lg-2:nth-child(5) > a.btn.btn-success")
+    @FindBy(css = "div.col-md-6.col-lg-2:nth-child(5) > a.btn.btn-success")
     WebElement addSubAddonBtn;
 
-    @FindBy(id="subaddons_name_1")
+    @FindBy(id = "subaddons_name_1")
     WebElement secondSubAddonNameInput;
 
-    @FindBy(id= "subaddons_price_1")
+    @FindBy(id = "subaddons_price_1")
     WebElement secondSubAddonsPriceInput;
 
-    @FindBy(css="tr.odd a:nth-child(2) > i.fa.fa-pencil")
+    @FindBy(css = "tr.odd a:nth-child(2) > i.fa.fa-pencil")
     WebElement editAddonIcon;
 
     //Locator of the edited main addon field
-    @FindBy(css="#mainaddons_name")
+    @FindBy(css = "#mainaddons_name")
     WebElement editSubAddonName;
 
     //Locator of the submit button
@@ -59,11 +60,17 @@ public class Addons extends SuperAdminTemplate {
     WebElement submitNewAddonsBtn;
 
     //Locator of the edit submit button
-    @FindBy (css = ":nth-child(4) > button.btn.btn-info.m-r-15:nth-child(1)")
+    @FindBy(css = ":nth-child(4) > button.btn.btn-info.m-r-15:nth-child(1)")
     WebElement editedSubmitBtn;
 
     @FindBy(css = "td:nth-child(6) a:nth-child(3) > i.fa.fa-trash-o")
     WebElement deleteIcon;
+
+    @FindBy(xpath = "//body/div/aside/section/ul[@data-widget='tree']/li[13]/a[1]")
+    WebElement storeManagemenMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Addons']")
+    WebElement addonsSubMenu;
 
 
     public void setMainAddonNameInput(String strMainAddonName) {
@@ -96,6 +103,14 @@ public class Addons extends SuperAdminTemplate {
 
     public void setEditSubAddonName(String strEditSubAddonName) {
         editSubAddonName.sendKeys(strEditSubAddonName);
+    }
+
+    public WebElement getStoreManagemenMainMenu() {
+        return storeManagemenMainMenu;
+    }
+
+    public WebElement getAddonsSubMenu() {
+        return addonsSubMenu;
     }
 
     public WebElement getAddNewAddonsBtn() {
@@ -131,7 +146,17 @@ public class Addons extends SuperAdminTemplate {
     }
 
     //Get the location by index of the management store and the adons
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(29, 35);
+    //public void clickMenuItem() {
+    //clickLeftSubMenuItemByIndex(29, 35);
+    //}
+
+    public void clickMenuItem() throws InterruptedException {
+        getStoreManagemenMainMenu().click();
+        Thread.sleep(5000);
+        Actions action = new Actions(driver);
+        action.moveToElement(getAddonsSubMenu());
+        action.perform();
+        getAddonsSubMenu().click();
+
     }
 }

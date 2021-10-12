@@ -15,15 +15,21 @@ public class CategoryPage extends SuperAdminTemplate {
         PageFactory.initElements(driver1, this);
     }
 
+    @FindBy(xpath = "//span[normalize-space()='Store Management']")
+    WebElement storeManagementMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Category']")
+    WebElement categorySubMenu;
+
     //add the css of the add new category button
-    @FindBy(css ="section.content.clearfix > div > div > div > div.box-header > a")
+    @FindBy(css = "section.content.clearfix > div > div > div > div.box-header > a")
     WebElement addNewCategoryBtn;
 
     //Category name field
     @FindBy(id = "category_name")
     WebElement categoryNameInput;
 
-    @FindBy(id= "categoryImage")
+    @FindBy(id = "categoryImage")
     WebElement chooseImageInput;
 
     //Submit button to add a new category
@@ -31,7 +37,7 @@ public class CategoryPage extends SuperAdminTemplate {
     WebElement categorySubmitBtn;
 
     //Edit category icon
-    @FindBy(css= "tr.odd:nth-child(1) td:nth-child(7) a:nth-child(1) > i.fa.fa-pencil")
+    @FindBy(css = "tbody tr:nth-child(1) td:nth-child(7) a:nth-child(2) i:nth-child(1)")
     WebElement editCategoryIcon;
 
     //get the category name field which will be edited
@@ -43,24 +49,24 @@ public class CategoryPage extends SuperAdminTemplate {
     WebElement submitEditedCategoryBtn;
 
     //Delete category icon
-    @FindBy(css="tr.odd:nth-child(1) td:nth-child(7) a:nth-child(2) > i.fa.fa-trash-o")
+    @FindBy(css = "tr:nth-child(1) > td:nth-child(7) > a:nth-child(3)")
     WebElement deleteCategoryIcon;
 
 
     public void setCategoryNameInput(String strCategoryName) {
-       categoryNameInput.sendKeys(strCategoryName);
+        categoryNameInput.sendKeys(strCategoryName);
     }
 
     public void setEditCategoryNameInput(String strEditCategoryName) {
         editCategoryNameInput.sendKeys(strEditCategoryName);
     }
 
-    public void setSubmitEditedCategoryBtn(WebElement submitEditedCategoryBtn) {
-        this.submitEditedCategoryBtn = submitEditedCategoryBtn;
+    public WebElement getStoreManagementMainMenu() {
+        return storeManagementMainMenu;
     }
 
-    public void setChooseImageInput(String categoryImage){
-        chooseImageInput.sendKeys(categoryImage);
+    public WebElement getCategorySubMenu() {
+        return categorySubMenu;
     }
 
     public WebElement getAddNewCategoryBtn() {
@@ -88,11 +94,7 @@ public class CategoryPage extends SuperAdminTemplate {
     }
 
     //Get the index "locator" of the managament store and category"
-        public void clickMenuItem(){
-
-            clickLeftSubMenuItemByIndex(29, 32);
-          //  clickLeftMenuItemByIndex(27);
-
-
-        }
+//        public void clickMenuItem(){
+//            clickLeftSubMenuItemByIndex(29, 32);
+//        }
 }

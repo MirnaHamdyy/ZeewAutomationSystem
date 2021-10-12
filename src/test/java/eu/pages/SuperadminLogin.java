@@ -14,7 +14,6 @@ public class SuperadminLogin {
         PageFactory.initElements(driver2, this);
     }
 
-
     //Subscriber Super admin email field element
     @FindBy(id= "username")
     private WebElement emailInput;

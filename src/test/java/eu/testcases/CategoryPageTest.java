@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,11 +23,18 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
     String expectedCategoryListURL = getPropertyValue("expectedCategoryListURL");
     String expectedAddCategoryFormURl = getPropertyValue("expectedAddCategoryFormURl");
 
-
-    public String getNewCategoryName() {
-        return newCategoryName;
+    //Click on the main menu and sub menu (Catgeory)
+    public void clickMenuItem() throws InterruptedException {
+        CategoryPage categoryPage = new CategoryPage(driver);
+        categoryPage.getStoreManagementMainMenu().click();
+        Thread.sleep(5000);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(categoryPage.getCategorySubMenu());
+        actions.perform();
+        categoryPage.getCategorySubMenu().click();
     }
 
+    //Create a new category starting the clicking on add new button step
     public void shareCategoryCreation(WebDriver driver) {
         CategoryPage categoryPageObject = new CategoryPage(driver);
         categoryPageObject.getAddNewCategoryBtn().click();
@@ -65,37 +73,31 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
     }
 
     //Test that the category page opens and content displays correctly
-    @Test(priority = 1, groups= {"Opening Pages"})
+    @Test(priority = 1)
     public void openCategoryListPage() throws InterruptedException {
-        CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+        clickMenuItem();
         driver.get(expectedCategoryListURL);
-        //Scroll until the category appears
-        //JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        //jsExecutor.executeScript("arguments[0].scrollIntoView();", catObj.getCategoryItem());
-        //catObj.getCategoryItem().click();
         Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Manage Category"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedCategoryListURL);
     }
 
-    //Verify that adda new category form opens and content is diplayed correctly
-    @Test(priority = 2, groups= {"Opening Pages"})
-    public void openAddCategoryForm() throws InterruptedException {
+    //Verify that add a new category form opens and content is diplayed correctly
+    @Test(priority = 2)
+    public void verifyOpeningAddCategoryForm() throws InterruptedException {
         CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
-        categoryPageObj.getAddNewCategoryBtn().click();
+        clickMenuItem();
         Thread.sleep(5000);
+        categoryPageObj.getAddNewCategoryBtn().click();
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Add Category"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedAddCategoryFormURl);
     }
 
     @Test(priority = 3)
-    public void createCategoryTest() {
-        CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+    public void createCategoryTest() throws InterruptedException {
+        clickMenuItem();
         shareCategoryCreation(driver);
         //Send the category name to the catgeory name field
         System.out.println("The new category is: " + newCategoryName);
@@ -114,8 +116,7 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 4)
     public void checkCategoryDefaultStatusIsDisabled() throws InterruptedException {
-        CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+        clickMenuItem();
         shareCategoryCreation(driver);
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#categotryTable")));
@@ -131,8 +132,8 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
                 // Now by using table row select td starts which has an id starts with 'status_', then select button tag then select i tag which represents the button icon
                 // we then check if the i tag's class contain the word close that means the button shows x
                 Assertions.assertThat(
-                        tableRowWhereNewCategoryLocated
-                                .findElement(By.cssSelector("td[id^='status_'] button i")).getAttribute("class"))
+                                tableRowWhereNewCategoryLocated
+                                        .findElement(By.cssSelector("td[id^='status_'] button i")).getAttribute("class"))
                         .contains("close");
                 return;
             }
@@ -146,9 +147,10 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
 
     //Navigate to the edit category page then check if the content is displayed
     @Test(priority = 5)
-    public void verifyNavigationToEditCategoryPageTest() {
+    public void verifyNavigationToEditCategoryPageTest() throws InterruptedException {
         CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+        clickMenuItem();
+        Thread.sleep(5000);
         categoryPageObj.getEditCategoryIcon().click();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         //Wait until get the location of the edit category header and header appears
@@ -156,9 +158,8 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 6)
-    public void enableTheDisabledCreatedCategory() {
-        CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+    public void enableTheDisabledCreatedCategory() throws InterruptedException {
+        clickMenuItem();
         shareCategoryCreation(driver);
         enableDisabledCategory(driver);
 
@@ -167,7 +168,7 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 7)
     public void editCategoryTest() throws InterruptedException {
         CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+        clickMenuItem();
         categoryPageObj.getEditCategoryIcon().click();
         categoryPageObj.getEditCategoryNameInput().clear();
         categoryPageObj.setEditCategoryNameInput(newEditedCategoryName);
@@ -186,20 +187,13 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 8)
-    public void deleteCategoryTest() {
+    public void deleteCategoryTest() throws InterruptedException {
         CategoryPage categoryPageObj = new CategoryPage(driver);
-        categoryPageObj.clickMenuItem();
+        clickMenuItem();
         categoryPageObj.getDeleteCategoryIcon().click();
         driver.switchTo().alert().accept();
         // WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         // wait.until(ExpectedConditions.invisibilityOfElementWithText(By.cssSelector("#categotryTable")));
     }
 
-//    @AfterClass
-//    public void teardown() {
-//        if (driver != null) {
-//            driver.quit();
-//        }
-//
-//    }
 }

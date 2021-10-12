@@ -12,21 +12,21 @@ import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
 public class VoucherTest extends AbstractAcceptanceLoginBefore {
 
-    String expectedVoucherListURL=getPropertyValue("expectedVoucherListURL");
-    String expectedAddVoucherFormURL=getPropertyValue("expectedAddVoucherFormURL");
+    String expectedVoucherListURL = getPropertyValue("expectedVoucherListURL");
+    String expectedAddVoucherFormURL = getPropertyValue("expectedAddVoucherFormURL");
 
-    @Test(priority = 1, groups= {"Opening Pages"})
+    @Test(priority = 1)
     public void verifyOpeningVoucherlistPage() {
 
         VoucherPage voucherPage = new VoucherPage(driver);
         voucherPage.clickMenuItem();
-        WebDriverWait wait = new WebDriverWait(driver, 3); // seconds
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Manage Voucher"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedVoucherListURL);
     }
 
-    @Test(priority = 2, groups= {"Opening Pages"})
-    public void verifyOpeningNewVoucherForm(){
+    @Test(priority = 2)
+    public void verifyOpeningNewVoucherForm() {
         VoucherPage voucherPage = new VoucherPage(driver);
         voucherPage.clickMenuItem();
         voucherPage.getAddNewVoucherBtn().click();

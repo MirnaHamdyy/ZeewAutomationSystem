@@ -143,7 +143,7 @@
                 <methods>
                     <exclude name="addNewCuisineTest"/>
                     <exclude name="checkCuisineDefaultStatusIsDisabled"/>
-                    <exclude name="enableCuisineDefaultValue"/>
+                    <exclude name="enableCuisineDefaultValueTest"/>
                     <exclude name="verifyNavigationToEditCuisinePageTest"/>
                     <exclude name="editCuisineTest"/>
                     <exclude name="deleteCuisineTest"/>
@@ -186,6 +186,7 @@
             <class name="eu.testcases.RestaurantTest">
                 <methods>
                     <exclude name="createNewRestauarnt"/>
+                    <exclude name="selectAndAddCategoryAndAddMenuForRestaurant"/>
                     <exclude name="checkRestaurantDefaultStatusIsDisabled"/>
                     <exclude name="verifyNavigationToEditRestaurantPageTest"/>
                     <exclude name="enableRestaurantDefaultValue"/>
