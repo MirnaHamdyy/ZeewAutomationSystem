@@ -15,23 +15,24 @@ public class CustomersPage extends SuperAdminTemplate {
         PageFactory.initElements(driver1, this);
     }
 
+    @FindBy(xpath = "//span[normalize-space()='Customers']")
+    WebElement customersMenuItem;
+
     @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
     WebElement addNewCustomerBtn;
 
-    @FindBy(css="td:nth-child(10) a:nth-child(1) > i.fa.fa-pencil")
+    @FindBy(css = "td:nth-child(10) a:nth-child(1) > i.fa.fa-pencil")
     WebElement editCustomerIcon;
 
+    public WebElement getCustomersMenuItem() {
+        return customersMenuItem;
+    }
 
     public WebElement getAddNewCustomerBtn() {
         return addNewCustomerBtn;
     }
+
     public WebElement getEditCustomerIcon() {
         return editCustomerIcon;
     }
-
-    public void clickMenuItem() {
-        clickLeftMenuItemByIndex(11);
-    }
-
-
 }

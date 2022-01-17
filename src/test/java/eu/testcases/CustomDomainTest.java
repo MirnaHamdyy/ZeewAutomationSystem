@@ -12,14 +12,18 @@ import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
 public class CustomDomainTest extends AbstractAcceptanceLoginBefore {
 
-    String expectedCustomDomainURL=getPropertyValue("expectedCustomDomainURL");
+    String expectedCustomDomainURL = getPropertyValue("expectedCustomDomainURL");
 
-    @Test(groups= {"Opening Pages"})
-    public void verifyOpeningSiteSettingsPage(){
-        CustomDomainPage customDomainPage=new CustomDomainPage(driver);
-        customDomainPage.clickMenuItem();
-        WebDriverWait wait=new WebDriverWait(driver, 5);
+    public void clickMenuItem() {
+        CustomDomainPage customDomainPage = new CustomDomainPage(driver);
+        customDomainPage.getCustomDomainMenuItem().click();
+    }
+
+    @Test()
+    public void verifyOpeningSiteSettingsPage() {
+        clickMenuItem();
+        WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Site Settings"));
-        Assert.assertEquals(driver.getCurrentUrl(),expectedCustomDomainURL );
+        Assert.assertEquals(driver.getCurrentUrl(), expectedCustomDomainURL);
     }
 }

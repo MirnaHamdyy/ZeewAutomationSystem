@@ -1,7 +1,8 @@
 package eu.pages;
 
-import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SurChargeSettingsPage extends SuperAdminTemplate {
@@ -14,8 +15,10 @@ public class SurChargeSettingsPage extends SuperAdminTemplate {
         PageFactory.initElements(driver1, this);
     }
 
-    public void clickMenuItem() {
-        clickLeftMenuItemByIndex(16);
-    }
+    @FindBy(xpath = "//span[normalize-space()='Surcharge Settings']")
+    WebElement surChargeSettingsMainMenu;
 
+    public WebElement getSurChargeSettingsMainMenu() {
+        return surChargeSettingsMainMenu;
+    }
 }

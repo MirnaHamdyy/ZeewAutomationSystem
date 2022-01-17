@@ -14,12 +14,12 @@ public class PropertiesFile {
 
     static Properties prop = new Properties();
 
-    private final static String PROP_DEVFILE_LOCACTION = "C:\\Users\\merna\\Projects\\zeew\\superadmin\\src\\test\\resources\\config properties\\devConfig.properties";
+    private final static String PROP_DEVFILE_LOCACTION = "C:\\Users\\merna\\Projects\\zeew\\superadmin\\src\\test\\resources\\config properties\\";
 
     static {
         System.out.println(System.getProperties());
         System.out.println("static blcok");
-        try (InputStream input = new FileInputStream(PROP_DEVFILE_LOCACTION)) {
+        try (InputStream input = new FileInputStream(PROP_DEVFILE_LOCACTION + System.getenv("CONFIG_FILE_NAME"))) {
             prop.load(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -42,10 +42,10 @@ public class PropertiesFile {
             //To run already existing subscriber on SAAS dev
         } else {
             // set real store (already subscribed meant for testing team) values
-            prop.put("storeName", "AutomatedStore");
-            prop.put("storeUrl", "https://automated-store.deliveryscripts.com/superadmin/dashboard");
-            prop.put("storeEmail", "...");
-            prop.put("email", "...");
+            //prop.put("storeName", "AutomatedStore");
+            // prop.put("storeUrl", "https://automated-store.deliveryscripts.com/superadmin/dashboard");
+            //prop.put("storeEmail", "...");
+            //  prop.put("email", "...");
 
         }
 /*

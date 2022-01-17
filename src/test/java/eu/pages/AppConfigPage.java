@@ -11,8 +11,10 @@ public class AppConfigPage extends SuperAdminTemplate {
 
     @FindBy(xpath = "//span[normalize-space()='Configure Mobile Apps']")
     WebElement configMobileApps;
+
     @FindBy(xpath = "//a[normalize-space()='App Config']")
     WebElement appConfigSubMenu;
+
     @FindBy(xpath = "//a[normalize-space()='App Colors']")
     WebElement appColorsTab;
 
@@ -33,9 +35,4 @@ public class AppConfigPage extends SuperAdminTemplate {
     public WebElement getAppColorsTab() {
         return appColorsTab;
     }
-
-//    public void clickMenuItem() {
-//        clickLeftSubMenuItemByIndex(12, 13);
-//    }
-
 }

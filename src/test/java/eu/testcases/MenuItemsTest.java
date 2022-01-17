@@ -1,5 +1,5 @@
 //package eu.testcases;
-//
+
 //import eu.pages.CategoryPage;
 //import eu.pages.MenuItemsPage;
 //import eu.pages.RestaurantPage;
@@ -15,11 +15,11 @@
 //import org.testng.Assert;
 //import org.testng.annotations.AfterClass;
 //import org.testng.annotations.Test;
-//
+
 //import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
-//
+
 //public class MenuItemsTest extends AbstractAcceptanceLoginBefore {
-//
+
 //    String randomPart = RandomStringUtils.randomAlphabetic(3).toLowerCase();
 //    String menuName = String.format(getPropertyValue("menuName") + randomPart);
 //    String menuPrice = String.format(getPropertyValue("menuPrice") + randomPart);
@@ -160,7 +160,3 @@
 //        VideoRecorder.stopRecord();
 //    }
 //}
-//
-//
-//
-//

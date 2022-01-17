@@ -1,12 +1,9 @@
 package eu.pages;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
 public class CuisinePage extends SuperAdminTemplate {
 
@@ -17,6 +14,12 @@ public class CuisinePage extends SuperAdminTemplate {
         driver = driver1;
         PageFactory.initElements(driver1, this);
     }
+
+    @FindBy(xpath = "//span[normalize-space()='Store Management']")
+    WebElement storeManagementMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Cuisines']")
+    WebElement cuisineSubMenu;
 
     //Locator of the add new cuisine button
     @FindBy(css = "div.box.my-box div.box-header > a.btn.btn-primary.pull-right")
@@ -50,6 +53,14 @@ public class CuisinePage extends SuperAdminTemplate {
         editCuisineNameInput.sendKeys(strEditCuisineName);
     }
 
+    public WebElement getStoreManagementMainMenu() {
+        return storeManagementMainMenu;
+    }
+
+    public WebElement getCuisineSubMenu() {
+        return cuisineSubMenu;
+    }
+
     public WebElement getAddNewCuisineBtn() {
         return addNewCuisineBtn;
     }
@@ -70,16 +81,4 @@ public class CuisinePage extends SuperAdminTemplate {
         return deleteCuisineIcon;
     }
 
-    //Get the location by index of the management store and the cuisine
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(29, 34);
-    }
-
-    public void shareCuisineCreation(String random, String cuisine) {
-        String randomPart = RandomStringUtils.randomAlphabetic(3).toLowerCase();
-        String newCuisineName = String.format(getPropertyValue("cuisineName") + randomPart);
-        getAddNewCuisineBtn().click();
-        setCuisineNameInput(newCuisineName);
-        getSubmitBtn().click();
-    }
 }

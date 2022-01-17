@@ -78,7 +78,7 @@
 
     <test name="Global Settings">
         <classes>
-            <class name="eu.testcases.GlobalSettingsTest"/>
+            <class name="eu.testcases.GlobalSettingsOperatingCitiesTest"/>
         </classes>
     </test>
 

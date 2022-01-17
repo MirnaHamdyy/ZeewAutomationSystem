@@ -11,6 +11,7 @@ public class ChangePasswordPage extends SuperAdminTemplate {
 
     @FindBy(xpath = "//span[normalize-space()='Business Settings']")
     WebElement businessSettingsMainMenu;
+
     @FindBy(xpath = "//li[@id='36']//a")
     WebElement changePasswordSubMenu;
 

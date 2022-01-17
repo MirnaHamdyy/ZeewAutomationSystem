@@ -14,7 +14,7 @@ import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 public class ChangePasswordTest extends AbstractAcceptanceLoginBefore {
 
     String expectedChangePasswordURL = getPropertyValue("expectedChangePasswordURL");
-    
+
     public void clickMenuItem() {
         ChangePasswordPage changePasswordPage = new ChangePasswordPage(driver);
         Actions actions = new Actions(driver);
@@ -25,7 +25,7 @@ public class ChangePasswordTest extends AbstractAcceptanceLoginBefore {
 
     }
 
-    @Test(groups = {"Opening Pages"})
+    @Test()
     public void verifyOpeningChangePasswordPage() {
         clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 5);

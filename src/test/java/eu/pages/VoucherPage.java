@@ -15,34 +15,26 @@ public class VoucherPage extends SuperAdminTemplate {
         PageFactory.initElements(driver1, this);
     }
 
-    @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
-    WebElement addNewVoucherBtn;
-
-    @FindBy(xpath = "//body/div/aside/section/ul[@data-widget='tree']/li[12]/a[1]")
-    WebElement promotionsMenu;
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
 
     @FindBy(xpath = "//a[normalize-space()='Vouchers']")
     WebElement voucherSubMenu;
 
-    public WebElement getAddNewVoucherBtn() {
-        return addNewVoucherBtn;
-    }
+    @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
+    WebElement addNewVoucherBtn;
 
-    public WebElement getPromotionsMenu() {
-        return promotionsMenu;
-    }
 
-    //Click on the promotions then cick on the Voucher
-    //public void clickMenuItem() {
-    //clickLeftSubMenuItemByIndex(21, 24);
-//    }
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
+    }
 
     public WebElement getVoucherSubMenu() {
         return voucherSubMenu;
     }
 
-    public void clickMenuItem() {
-        getPromotionsMenu().click();
-        getVoucherSubMenu().click();
+    public WebElement getAddNewVoucherBtn() {
+        return addNewVoucherBtn;
     }
+
 }

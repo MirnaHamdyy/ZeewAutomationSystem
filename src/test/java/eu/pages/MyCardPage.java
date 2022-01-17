@@ -1,19 +1,31 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MyCardPage extends SuperAdminTemplate{
+public class MyCardPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    public MyCardPage(WebDriver driver1){
+    @FindBy(xpath = "//body/div/aside/section/ul[@data-widget='tree']/li[11]/a[1]")
+    WebElement billingMainMenu;
+    @FindBy(xpath = "//a[normalize-space()='My Cards']")
+    WebElement myCardsSubMenuItem;
+
+    public MyCardPage(WebDriver driver1) {
         super(driver1);
-        driver=driver1;
+        driver = driver1;
         PageFactory.initElements(driver1, this);
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(18, 20);
+    public WebElement getBillingMainMenu() {
+        return billingMainMenu;
+    }
+
+    public WebElement getMyCardsSubMenuItem() {
+        return myCardsSubMenuItem;
     }
 }
+

@@ -22,11 +22,6 @@ public class BecomePartnerPage extends SuperAdminTemplate {
         return becomePartnerMainMenu;
     }
 
-//    public void clickMenuItem() {
-//        clickLeftMenuItemByIndex(61);
-//    }
-
-
 }
 
 

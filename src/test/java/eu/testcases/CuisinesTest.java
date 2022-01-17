@@ -7,6 +7,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -22,6 +23,17 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     String expectedCuisineListURL = getPropertyValue("expectedCuisineListURL");
     String expectedAddCuisineFormURL = getPropertyValue("expectedAddCuisineFormURL");
 
+    //Navigate to Manage store and open cuisine sub menu
+    public void clickMenuItem() {
+        CuisinePage cuisinePage = new CuisinePage(driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(cuisinePage.getStoreManagementMainMenu());
+        actions.perform();
+        cuisinePage.getStoreManagementMainMenu().click();
+        actions.moveToElement(cuisinePage.getCuisineSubMenu());
+        actions.perform();
+        cuisinePage.getCuisineSubMenu().click();
+    }
 
     public void shareCuisineCreation() {
         CuisinePage cuisinePageObject = new CuisinePage(driver);
@@ -32,20 +44,19 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
         cuisinePageObject.getSubmitBtn().click();
     }
 
-    @Test(priority = 1, groups= {"Opening Pages"})
+    @Test(priority = 1)
     //verify the cuisine opens correctly doesn't open any error page
     public void openCuisinesPage() throws InterruptedException {
-        CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Manage Cuisine"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedCuisineListURL);
     }
 
-    @Test(priority = 2, groups= {"Opening Pages"})
+    @Test(priority = 2)
     public void openAddCuisineForm() throws InterruptedException {
         CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         cuisinePageObj.getAddNewCuisineBtn().click();
         Thread.sleep(5000);
         WebDriverWait wait = new WebDriverWait(driver, 5); // seconds
@@ -56,8 +67,7 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 3)
     public void addNewCuisineTest() throws Exception {
         VideoRecorder.startRecord("editCuisineTest");
-        CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         shareCuisineCreation();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#cuisineTable")));
@@ -75,9 +85,8 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 4)
-    public void checkCuisineDefaultStatusIsDisabled() throws InterruptedException {
-        CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+    public void checkCuisineDefaultStatusIsDisabled() {
+        clickMenuItem();
         shareCuisineCreation();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#cuisineTable")));
@@ -93,8 +102,8 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
                 // Now by using table row select td starts which has an id starts with 'status_', then select button tag then select i tag which represents the button icon
                 // we then check if the i tag's class contain the word close that means the button shows x
                 Assertions.assertThat(
-                        tableRowWhereNewCuisineLocated
-                                .findElement(By.cssSelector("td[id^='status_'] button i")).getAttribute("class"))
+                                tableRowWhereNewCuisineLocated
+                                        .findElement(By.cssSelector("td[id^='status_'] button i")).getAttribute("class"))
                         .contains("close");
                 return;
             }
@@ -109,8 +118,7 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 5)
     public void enableCuisineDefaultValueTest() throws Exception {
         VideoRecorder.startRecord("editCuisineTest");
-        CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         shareCuisineCreation();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#cuisineTable")));
@@ -142,7 +150,7 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 6)
     public void verifyNavigationToEditCuisinePageTest() {
         CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         cuisinePageObj.getEditCuisineIcon().click();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         //Wait until get the location of the edit category header and header appears
@@ -150,9 +158,9 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     }
 
     @Test(priority = 7)
-    public void editCuisineTest() throws Exception {
+    public void editCuisineTest() {
         CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         cuisinePageObj.getEditCuisineIcon().click();
         cuisinePageObj.getEditCuisineNameInput().clear();
         cuisinePageObj.setEditCuisineNameInput(newEditedCuisineName);
@@ -174,7 +182,7 @@ public class CuisinesTest extends AbstractAcceptanceLoginBefore {
     public void deleteCuisineTest() throws Exception {
         VideoRecorder.startRecord("deleteCuisineTest");
         CuisinePage cuisinePageObj = new CuisinePage(driver);
-        cuisinePageObj.clickMenuItem();
+        clickMenuItem();
         cuisinePageObj.getDeleteCuisineIcon().click();
         driver.switchTo().alert().accept();
         VideoRecorder.stopRecord();
