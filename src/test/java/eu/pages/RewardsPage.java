@@ -1,21 +1,30 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RewardsPage extends SuperAdminTemplate{
+public class RewardsPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    public RewardsPage(WebDriver driver1){
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
+    @FindBy(xpath = "//a[normalize-space()='Rewards']")
+    WebElement rewardsSubMenu;
+
+    public RewardsPage(WebDriver driver1) {
         super(driver1);
-        driver=driver1;
+        driver = driver1;
         PageFactory.initElements(driver1, this);
     }
 
-    //Click on the promotions then cick on the Rewards page
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(21, 25);
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
     }
 
+    public WebElement getRewardsSubMenu() {
+        return rewardsSubMenu;
+    }
 }

@@ -4,6 +4,7 @@ import eu.pages.StoreOffersPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -20,6 +21,16 @@ public class StoreOffersTest extends AbstractAcceptanceLoginBefore {
 
     String expectedStoreOffersURL = getPropertyValue("expectedStoreOffersURL");
     String expectedAddNewOfferURl = getPropertyValue("expectedAddNewOfferURl");
+
+    public void clickMenuItem() {
+        StoreOffersPage storeOffersPage = new StoreOffersPage(driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(storeOffersPage.getPromotionsMainMenu());
+        storeOffersPage.getPromotionsMainMenu().click();
+        actions.perform();
+        storeOffersPage.getStoreOffersSubMenu().click();
+        actions.perform();
+    }
 
     public void selectTodayDate() {
 
@@ -50,9 +61,7 @@ public class StoreOffersTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 1, groups = {"Opening Pages"})
     public void verifyOpeningStoreOffersPage() {
-
-        StoreOffersPage storeOffersPage = new StoreOffersPage(driver);
-        storeOffersPage.clickMenuItem();
+        clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 3); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Manage Offer"));
         Assert.assertEquals(driver.getCurrentUrl(), expectedStoreOffersURL);
@@ -61,17 +70,16 @@ public class StoreOffersTest extends AbstractAcceptanceLoginBefore {
     @Test
     public void verifySelectingDate() {
         StoreOffersPage storeOffersPage = new StoreOffersPage(driver);
-        storeOffersPage.clickMenuItem();
+        clickMenuItem();
         storeOffersPage.getAddNewOfferBtn().click();
         //Use  SimpleDateFormat to format the date as a String
         selectTodayDate();
     }
 
-
     @Test(priority = 2, groups = {"Opening Pages"})
     public void verifyOpeningNewOfferForm() {
         StoreOffersPage storeOffersPage = new StoreOffersPage(driver);
-        storeOffersPage.clickMenuItem();
+        clickMenuItem();
         storeOffersPage.getAddNewOfferBtn().click();
         WebDriverWait wait = new WebDriverWait(driver, 20); // seconds
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Add Offer"));

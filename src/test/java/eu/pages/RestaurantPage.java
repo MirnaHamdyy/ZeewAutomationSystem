@@ -1,6 +1,5 @@
 package eu.pages;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -20,6 +19,13 @@ public class RestaurantPage extends SuperAdminTemplate {
         driver = driver1;
         PageFactory.initElements(driver1, this);
     }
+
+
+    @FindBy(xpath = "//span[normalize-space()='Store Management']")
+    WebElement storeManagementMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Manage Stores']")
+    WebElement manageStoreSubMenu;
 
     //The locator of Add new store button
     @FindBy(css = "a.btn.btn-primary.pull-right:nth-child(2)")
@@ -285,6 +291,13 @@ public class RestaurantPage extends SuperAdminTemplate {
         bankAddressInput.sendKeys(strBankAddressInput);
     }
 
+    public WebElement getStoreManagementMainMenu() {
+        return storeManagementMainMenu;
+    }
+
+    public WebElement getManageStoreSubMenu() {
+        return manageStoreSubMenu;
+    }
 
     /////////////
     public WebElement getAddNewBtn() {
@@ -311,9 +324,6 @@ public class RestaurantPage extends SuperAdminTemplate {
         return restaurantInfoTab;
     }
 
-    public WebElement getRestaurantInfoTab() {
-        return restaurantInfoTab;
-    }
 
     public WebElement getDeliveryInfoTab() {
         return deliveryInfoTab;
@@ -363,9 +373,6 @@ public class RestaurantPage extends SuperAdminTemplate {
         return submitEditedRestaurantName;
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(29, 30);
-    }
 
     //Select the address
     public void selectAddressOption() {
@@ -452,8 +459,8 @@ public class RestaurantPage extends SuperAdminTemplate {
                 .click(firstCuisineItemSelect)
                 .click(secondCuisineItemSelect)
                 .click(select.getOptions().get(2))
-                .click(select.getOptions().get(3))
-                .click(select.getOptions().get(4))
+                //.click(select.getOptions().get(3))
+                // .click(select.getOptions().get(4))
                 //keyUp(): We use this method majorly in collaboration with the keyDown() method.
                 .keyUp(Keys.CONTROL);
         actions.build().perform();

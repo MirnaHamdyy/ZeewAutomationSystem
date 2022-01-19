@@ -1,6 +1,5 @@
 package eu.pages;
 
-import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,14 +15,25 @@ public class MobileSliderPage extends SuperAdminTemplate {
         PageFactory.initElements(driver1, this);
     }
 
-    @FindBy(css="div.box-header > a.btn.btn-primary.pull-right")
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Mobile sliders']")
+    WebElement mobileSlidersSubMenu;
+
+
+    @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
     WebElement AddNewMobileSliderBtn;
+
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
+    }
+
+    public WebElement getMobileSlidersSubMenu() {
+        return mobileSlidersSubMenu;
+    }
 
     public WebElement getAddNewMobileSliderBtn() {
         return AddNewMobileSliderBtn;
-    }
-
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(21, 27);
     }
 }

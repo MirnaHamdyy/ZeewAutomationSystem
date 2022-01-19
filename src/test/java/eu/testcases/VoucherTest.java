@@ -23,7 +23,6 @@ public class VoucherTest extends AbstractAcceptanceLoginBefore {
         voucherPage.getPromotionsMainMenu().click();
         actions.perform();
         actions.moveToElement(voucherPage.getVoucherSubMenu());
-
         voucherPage.getVoucherSubMenu().click();
         actions.perform();
     }

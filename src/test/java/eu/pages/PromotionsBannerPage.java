@@ -4,9 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.Factory;
 
-public class PromotionsBannerPage extends SuperAdminTemplate{
+public class PromotionsBannerPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
@@ -16,13 +15,23 @@ public class PromotionsBannerPage extends SuperAdminTemplate{
         PageFactory.initElements(driver1, this);
     }
 
-    @FindBy(css=".btn.btn-primary.pull-right")
+
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
+    @FindBy(xpath = "//a[normalize-space()='Promotion Banners']")
+    WebElement promotionBannerSubMenu;
+    @FindBy(css = ".btn.btn-primary.pull-right")
     WebElement addNewPromotionBtn;
 
-    
-
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(21, 26);
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
     }
 
+    public WebElement getPromotionBannerSubMenu() {
+        return promotionBannerSubMenu;
+    }
+
+    public WebElement getAddNewPromotionBtn() {
+        return addNewPromotionBtn;
+    }
 }

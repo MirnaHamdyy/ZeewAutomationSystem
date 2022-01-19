@@ -196,4 +196,10 @@ public class CategoryPageTest extends AbstractAcceptanceLoginBefore {
         // wait.until(ExpectedConditions.invisibilityOfElementWithText(By.cssSelector("#categotryTable")));
     }
 
+//    @AfterClass
+//    public void teardown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 }

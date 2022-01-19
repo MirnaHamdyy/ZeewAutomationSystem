@@ -3,18 +3,26 @@ package eu.testcases;
 import eu.pages.SiteSettingsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
 
-    //String expectedSiteSettingsPageURL = getPropertyValue("expectedSiteSettingsPageURL");
+    public void clickMenuItem() {
+        SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
+        Actions actions = new Actions(driver);
+        actions.moveToElement(siteSettingsPage.getBusinessSettingsMainMenu());
+        siteSettingsPage.getBusinessSettingsMainMenu().click();
+        actions.perform();
+        actions.moveToElement(siteSettingsPage.getSiteSettingsSubMenu());
+        siteSettingsPage.getSiteSettingsSubMenu().click();
+        actions.perform();
+    }
 
     @Test(priority = 1)
     public void verifyOpeningSiteSettingsPage() {
-
-        SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         String actualMobileLogoTextFieldString = driver.findElement(By.xpath("//*[@id=\"site\"]/div[3]/label")).getText();
         Assert.assertTrue(actualMobileLogoTextFieldString.contains("Mobile Logo"));
     }
@@ -23,7 +31,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningContactTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getContactTab().click();
         String actualOrderEmailTextFieldString = driver.findElement(By.xpath("//*[@id=\"contact\"]/div[6]/label")).getText();
         Assert.assertTrue(actualOrderEmailTextFieldString.contains("Order Email"));
@@ -33,7 +41,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningLocationTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getLocationTab().click();
         String actualSiteCityTextFieldString = driver.findElement(By.xpath("//*[@id=\"location\"]/div[4]/label")).getText();
         Assert.assertTrue(actualSiteCityTextFieldString.contains("Site City"));
@@ -43,7 +51,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningAnalyticsCodeTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getAnalyticCodeTab().click();
         String actualAnalyticsCodeTextFieldString = driver.findElement(By.xpath("//*[@id=\"siteForm\"]/div[2]/ul/li[4]/a")).getText();
         Assert.assertTrue(actualAnalyticsCodeTextFieldString.contains("Analytics Code"));
@@ -53,7 +61,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningMailSettingTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getMailSettingTab().click();
         String actualMailSettingTextFieldString = driver.findElement(By.xpath("//*[@id=\"siteForm\"]/div[2]/ul/li[5]/a")).getText();
         Assert.assertTrue(actualMailSettingTextFieldString.contains("Mail Setting"));
@@ -62,17 +70,16 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 5, groups = {"Opening Pages"})
     public void verifyOpeningInvoicesTab() {
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getInvoicesTab().click();
-        String actualVATTextFieldString = driver.findElement(By.xpath("//*[@id=\"invoice\"]/div[2]/label")).getText();
+        String actualVATTextFieldString = driver.findElement(By.xpath("//label[normalize-space()='VAT (%)']")).getText();
         Assert.assertTrue(actualVATTextFieldString.contains("VAT (%)"));
     }
 
     @Test(priority = 6, groups = {"Opening Pages"})
     public void verifyOpeningOfflineTab() {
-
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getOfflineTab().click();
         String actualOfflineStatusTextFieldString = driver.findElement(By.xpath("//*[@id=\"offline\"]")).getText();
         Assert.assertTrue(actualOfflineStatusTextFieldString.contains("Offline Status"));
@@ -82,7 +89,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningMetaTagsTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getMetaTagsTab().click();
         String actualMetaDescriptionTextFieldString = driver.findElement(By.xpath("//*[@id=\"MetaTags\"]/div[3]/label")).getText();
         Assert.assertTrue(actualMetaDescriptionTextFieldString.contains("Meta Descriptions"));
@@ -90,9 +97,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 8, groups = {"Opening Pages"})
     public void verifyOpeningOrderAssignTab() {
-
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getOrderAssignTab().click();
         String actualAssignMilesTextFieldString = driver.findElement(By.xpath("//*[@id=\"assign_miles\"]/label")).getText();
         Assert.assertTrue(actualAssignMilesTextFieldString.contains("Assign Miles"));
@@ -100,9 +106,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 9, groups = {"Opening Pages"})
     public void verifyOpeningLanguageTab() {
-
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getLanguageTab().click();
         String actualMultipleLanguageTextFieldString = driver.findElement(By.xpath("//*[@id=\"Language\"]/div/label")).getText();
         Assert.assertTrue(actualMultipleLanguageTextFieldString.contains("Multiple Language"));
@@ -112,7 +117,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningBankInfoTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getBankInfoTab().click();
         String actualBankAddressTextFieldString = driver.findElement(By.xpath("//*[@id=\"tab_12\"]/div/div[4]/label")).getText();
         Assert.assertTrue(actualBankAddressTextFieldString.contains("Bank Address"));
@@ -122,7 +127,7 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningSocialMediaTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getSocialMediaTab().click();
         String actualGoogleLoginTextFieldString = driver.findElement(By.xpath("//*[@id=\"social_media\"]/div[2]/div[2]/div[3]/label")).getText();
         Assert.assertTrue(actualGoogleLoginTextFieldString.contains("Google Login"));
@@ -132,20 +137,19 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningAppStoreLinksTab() {
 
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getAppStoreLinksTab().click();
-        String actualAppleStoreTextFieldString = driver.findElement(By.cssSelector("div[id='store_links'] div:nth-child(3) label:nth-child(1)")).getText();
+        String actualAppleStoreTextFieldString = driver.findElement(By.xpath("//body/div/div/section/div/div/div/form[@id='siteForm']/div/div/div[@id='store_links']/div[3]/label[1]")).getText();
         Assert.assertTrue(actualAppleStoreTextFieldString.contains("Apple Store"));
     }
 
     @Test(priority = 13, groups = {"Opening Pages"})
     public void verifyOpeningWebSettingsLinksTab() {
-
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
-        siteSettingsPage.clickMenuItem();
+        clickMenuItem();
         siteSettingsPage.getWebSettingsTab().click();
-        String actualCustomCSSTextFieldString = driver.findElement(By.xpath("//*[@id=\"web_settings\"]/div[48]/label")).getText();
-        Assert.assertTrue(actualCustomCSSTextFieldString.contains("Custom CSS"));
+        String actualCustomCSSTextFieldString = driver.findElement(By.xpath("//label[normalize-space()='Primary Heading']")).getText();
+        Assert.assertTrue(actualCustomCSSTextFieldString.contains("Primary Heading"));
     }
 
 }

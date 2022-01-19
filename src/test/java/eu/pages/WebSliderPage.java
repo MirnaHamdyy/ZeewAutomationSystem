@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class WebSliderPage extends SuperAdminTemplate{
+public class WebSliderPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
@@ -15,14 +15,26 @@ public class WebSliderPage extends SuperAdminTemplate{
         PageFactory.initElements(driver1, this);
     }
 
-    @FindBy(css="div.box-header > a.btn.btn-primary.pull-right")
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Web Sliders']")
+    WebElement webSliderSubMenu;
+
+    @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
     WebElement AddNewWebSliderBtn;
+
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
+    }
+
+    public WebElement getWebSliderSubMenu() {
+        return webSliderSubMenu;
+    }
 
     public WebElement getAddNewWebSliderBtn() {
         return AddNewWebSliderBtn;
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(21, 28);
-    }
+
 }

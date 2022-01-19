@@ -11,6 +11,7 @@ public class ReferralPage extends SuperAdminTemplate {
 
     @FindBy(xpath = "//span[normalize-space()='Promotions']")
     WebElement promotionMainMenu;
+
     @FindBy(xpath = "//a[normalize-space()='Referral']")
     WebElement referralSubMenu;
 

@@ -5,8 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.Date;
-
 public class StoreOffersPage extends SuperAdminTemplate {
 
     WebDriver driver;
@@ -16,6 +14,12 @@ public class StoreOffersPage extends SuperAdminTemplate {
         driver = driver1;
         PageFactory.initElements(driver1, this);
     }
+
+    @FindBy(xpath = "//span[normalize-space()='Promotions']")
+    WebElement promotionsMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Store Offers']")
+    WebElement storeOffersSubMenu;
 
     @FindBy(css = "div.box-header > a.btn.btn-primary.pull-right")
     WebElement addNewOfferBtn;
@@ -49,9 +53,16 @@ public class StoreOffersPage extends SuperAdminTemplate {
     }
 
     public void setToDataPicker(String strToDate) {
-        toDataPicker.sendKeys( strToDate);
+        toDataPicker.sendKeys(strToDate);
     }
 
+    public WebElement getPromotionsMainMenu() {
+        return promotionsMainMenu;
+    }
+
+    public WebElement getStoreOffersSubMenu() {
+        return storeOffersSubMenu;
+    }
 
     public WebElement getStoreNameSelect() {
         return storeNameSelect;
@@ -69,9 +80,5 @@ public class StoreOffersPage extends SuperAdminTemplate {
         return addNewOfferBtn;
     }
 
-    //Click on the promotions then cick on the store offers
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(21, 22);
-    }
 
 }
