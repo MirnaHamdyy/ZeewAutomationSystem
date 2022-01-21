@@ -3,6 +3,7 @@ package eu.testcases;
 import eu.pages.AutoAssignSettingsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,12 +19,15 @@ public class AutoAssignSettingsTest extends AbstractAcceptanceLoginBefore {
     public void clickMenuItem() {
         AutoAssignSettingsPage autoAssignSettingsPage = new AutoAssignSettingsPage(driver);
         Actions actions = new Actions(driver);
-        actions.moveToElement(autoAssignSettingsPage.getBusinessSettingsMainMenu());
-        actions.perform();
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", autoAssignSettingsPage.getBusinessSettingsMainMenu());
         autoAssignSettingsPage.getBusinessSettingsMainMenu().click();
-        actions.moveToElement(autoAssignSettingsPage.getAutoAssignSettingsSubMenu());
         actions.perform();
+        actions.moveToElement(autoAssignSettingsPage.getAutoAssignSettingsSubMenu());
+        jse.executeScript("arguments[0].scrollIntoView(true);", autoAssignSettingsPage.getAutoAssignSettingsSubMenu());
         autoAssignSettingsPage.getAutoAssignSettingsSubMenu().click();
+        actions.perform();
+
     }
 
     @Test

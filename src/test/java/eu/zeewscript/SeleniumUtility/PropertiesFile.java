@@ -60,7 +60,7 @@ public class PropertiesFile {
 
         }
  */
-    }
+         }
 
     public static String getPropertyValue(String key) {
         // System.out.println("get property value");

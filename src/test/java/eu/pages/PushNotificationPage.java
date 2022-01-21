@@ -1,20 +1,31 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PushNotificationPage extends SuperAdminTemplate{
+public class PushNotificationPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    public PushNotificationPage(WebDriver driver1){
+    @FindBy(xpath = "//span[normalize-space()='Business Settings']")
+    WebElement businessSettingsMainMenu;
+    @FindBy(xpath = "//a[contains(text(),'Push Notification')]")
+    WebElement pushNotificationSubMenu;
+
+    public PushNotificationPage(WebDriver driver1) {
         super(driver1);
-        driver=driver1;
+        driver = driver1;
         PageFactory.initElements(driver1, this);
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(40, 50);
+    public WebElement getBusinessSettingsMainMenu() {
+        return businessSettingsMainMenu;
+    }
+
+    public WebElement getPushNotificationSubMenu() {
+        return pushNotificationSubMenu;
     }
 }
 

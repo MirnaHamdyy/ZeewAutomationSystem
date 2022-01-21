@@ -3,6 +3,7 @@ package eu.testcases;
 import eu.pages.SiteSettingsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,6 +13,8 @@ public class SiteSettingsTest extends AbstractAcceptanceLoginBefore {
     public void clickMenuItem() {
         SiteSettingsPage siteSettingsPage = new SiteSettingsPage(driver);
         Actions actions = new Actions(driver);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", siteSettingsPage.getBusinessSettingsMainMenu());
         actions.moveToElement(siteSettingsPage.getBusinessSettingsMainMenu());
         siteSettingsPage.getBusinessSettingsMainMenu().click();
         actions.perform();

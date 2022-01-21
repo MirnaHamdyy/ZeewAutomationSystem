@@ -1,9 +1,11 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class InvoicesPage extends SuperAdminTemplate{
+public class InvoicesPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
@@ -13,9 +15,17 @@ public class InvoicesPage extends SuperAdminTemplate{
         PageFactory.initElements(driver1, this);
     }
 
+    @FindBy(xpath = "//span[normalize-space()='Reporting']")
+    WebElement reportingMainMenu;
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(36, 38);
+    @FindBy(xpath = "//a[normalize-space()='Invoices']")
+    WebElement invoicesSubMenu;
+
+    public WebElement getReportingMainMenu() {
+        return reportingMainMenu;
     }
 
+    public WebElement getInvoicesSubMenu() {
+        return invoicesSubMenu;
+    }
 }

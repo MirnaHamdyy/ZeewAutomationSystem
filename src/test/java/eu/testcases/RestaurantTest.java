@@ -232,7 +232,6 @@ public class RestaurantTest extends AbstractAcceptanceLoginBefore {
     @Test(priority = 13)
     public void createNewRestauarnt() throws Exception {
         // VideoRecorder.startRecord("createNewRestauarnt");
-        RestaurantPage restaurantPage = new RestaurantPage(driver);
         clickMenuItem();
         shareRestaurantCreation(driver);
         WebDriverWait wait = new WebDriverWait(driver, 50); // seconds

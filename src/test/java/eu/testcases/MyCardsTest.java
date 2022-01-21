@@ -21,7 +21,7 @@ public class MyCardsTest extends AbstractAcceptanceLoginBefore {
         actions.moveToElement(cardPage.getBillingMainMenu());
         cardPage.getBillingMainMenu().click();
         actions.perform();
-        actions.moveToElement(cardPage.getMyCardsSubMenuItem());
+      //  actions.moveToElement(cardPage.getMyCardsSubMenuItem());
         cardPage.getMyCardsSubMenuItem().click();
         actions.perform();
     }

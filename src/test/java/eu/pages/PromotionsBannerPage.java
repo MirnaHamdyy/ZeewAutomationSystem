@@ -18,8 +18,10 @@ public class PromotionsBannerPage extends SuperAdminTemplate {
 
     @FindBy(xpath = "//span[normalize-space()='Promotions']")
     WebElement promotionsMainMenu;
+
     @FindBy(xpath = "//a[normalize-space()='Promotion Banners']")
     WebElement promotionBannerSubMenu;
+
     @FindBy(css = ".btn.btn-primary.pull-right")
     WebElement addNewPromotionBtn;
 

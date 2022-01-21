@@ -13,7 +13,7 @@ import static eu.zeewscript.SeleniumUtility.PropertiesFile.getPropertyValue;
 
 public class GlobalSettingsDeliveryZoneTest extends AbstractAcceptanceLoginBefore {
 
-    String expectedGlobalSettingsDeliveryZoneURL = getPropertyValue("expectedGlobalSettingsDeliveryZoneURL");
+    String expectedDeliveryZoneURL = getPropertyValue("expectedDeliveryZoneURL");
 
     public void clickMenuItem() {
         GlobalSettingsDeliveryZonePage globalSettingsDeliveryZonePage = new GlobalSettingsDeliveryZonePage(driver);
@@ -31,7 +31,7 @@ public class GlobalSettingsDeliveryZoneTest extends AbstractAcceptanceLoginBefor
         clickMenuItem();
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.textToBePresentInElementLocated(By.cssSelector("section.content-header > h1:nth-child(1)"), "Global Delivery Zones"));
-        Assert.assertEquals(driver.getCurrentUrl(), expectedGlobalSettingsDeliveryZoneURL);
+        Assert.assertEquals(driver.getCurrentUrl(), expectedDeliveryZoneURL);
     }
 
 }

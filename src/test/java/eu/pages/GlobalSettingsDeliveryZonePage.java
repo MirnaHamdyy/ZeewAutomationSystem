@@ -7,8 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class GlobalSettingsDeliveryZonePage extends SuperAdminTemplate {
     WebDriver driver;
-    @FindBy(xpath = "//body/div/aside/section/ul[contains(@data-widget,'tree')]/li[10]/a[1]")
+
+    @FindBy(xpath = "//span[normalize-space()='Global Settings']")
     WebElement globalSettingsMenu;
+
     @FindBy(xpath = "//a[normalize-space()='Delivery Zones']")
     WebElement deliveryZonesSubMenu;
 

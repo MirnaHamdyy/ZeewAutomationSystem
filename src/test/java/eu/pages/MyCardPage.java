@@ -9,8 +9,9 @@ public class MyCardPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    @FindBy(xpath = "//body/div/aside/section/ul[@data-widget='tree']/li[11]/a[1]")
+    @FindBy(xpath = "//span[normalize-space()='Billing']")
     WebElement billingMainMenu;
+
     @FindBy(xpath = "//a[normalize-space()='My Cards']")
     WebElement myCardsSubMenuItem;
 

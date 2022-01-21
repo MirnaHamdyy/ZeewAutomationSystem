@@ -3,6 +3,7 @@ package eu.testcases;
 import eu.pages.ChangePasswordPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -18,11 +19,12 @@ public class ChangePasswordTest extends AbstractAcceptanceLoginBefore {
     public void clickMenuItem() {
         ChangePasswordPage changePasswordPage = new ChangePasswordPage(driver);
         Actions actions = new Actions(driver);
-        actions.moveToElement(changePasswordPage.getBusinessSettingsMainMenu());
-        actions.perform();
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", changePasswordPage.getBusinessSettingsMainMenu());
         changePasswordPage.getBusinessSettingsMainMenu().click();
+        actions.perform();
         changePasswordPage.getChangePasswordSubMenu().click();
-
+        actions.perform();
     }
 
     @Test()

@@ -10,6 +10,7 @@ public class CMSPage extends SuperAdminTemplate {
     WebDriver driver;
 
     @FindBy(xpath = "//span[normalize-space()='Business Settings']")
+
     WebElement businessSettingsMainMenu;
     @FindBy(xpath = "//a[normalize-space()='CMS']")
     WebElement cmsSubMenu;

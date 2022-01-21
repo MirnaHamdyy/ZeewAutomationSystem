@@ -12,7 +12,7 @@ public class AutoAssignSettingsPage extends SuperAdminTemplate {
     @FindBy(xpath = "//span[normalize-space()='Business Settings']")
     WebElement businessSettingsMainMenu;
 
-    @FindBy(xpath = "//li[@id='54']//a")
+    @FindBy(xpath = "//a[contains(text(),'Autoassign Settings')]")
     WebElement autoAssignSettingsSubMenu;
 
 

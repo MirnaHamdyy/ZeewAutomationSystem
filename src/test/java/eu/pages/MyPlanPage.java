@@ -1,21 +1,30 @@
 package eu.pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MyPlanPage extends SuperAdminTemplate{
+public class MyPlanPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    public MyPlanPage(WebDriver driver1){
+    @FindBy(xpath = "//span[normalize-space()='Billing']")
+    WebElement billingMainMenu;
+    @FindBy(xpath = "//a[normalize-space()='My Plan']")
+    WebElement myPlanSubMenu;
+
+    public MyPlanPage(WebDriver driver1) {
         super(driver1);
-        driver=driver1;
+        driver = driver1;
         PageFactory.initElements(driver1, this);
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(18, 19);
+    public WebElement getBillingMainMenu() {
+        return billingMainMenu;
     }
 
-
+    public WebElement getMyPlanSubMenu() {
+        return myPlanSubMenu;
+    }
 }

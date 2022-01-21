@@ -9,23 +9,30 @@ public class SubadminPage extends SuperAdminTemplate {
 
     WebDriver driver;
 
-    public SubadminPage(WebDriver driver1){
+    public SubadminPage(WebDriver driver1) {
         super(driver1);
-        driver=driver1;
+        driver = driver1;
         PageFactory.initElements(driver1, this);
     }
 
-    @FindBy(xpath="/html/body/div[1]/div[2]/section[2]/div/div/div/div[1]/a")
+    @FindBy(xpath = "//span[normalize-space()='Business Settings']")
+    WebElement businessSettingsMainMenu;
+
+    @FindBy(xpath = "//a[normalize-space()='Subadmins']")
+    WebElement subAdminSubMenu;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/section[2]/div/div/div/div[1]/a")
     WebElement addNewSubAdminBtn;
 
     public WebElement getAddNewSubAdminBtn() {
         return addNewSubAdminBtn;
     }
 
-    public void clickMenuItem() {
-        clickLeftSubMenuItemByIndex(40, 45);
+    public WebElement getBusinessSettingsMainMenu() {
+        return businessSettingsMainMenu;
     }
 
-
-
+    public WebElement getSubAdminSubMenu() {
+        return subAdminSubMenu;
+    }
 }

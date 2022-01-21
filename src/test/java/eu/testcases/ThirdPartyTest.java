@@ -3,17 +3,28 @@ package eu.testcases;
 import eu.pages.ThirdPartySettingsPage;
 import eu.zeewscript.SeleniumUtility.AbstractAcceptanceLoginBefore;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
 
+    public void clickMenuItem() {
+        ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
+        Actions actions = new Actions(driver);
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript("arguments[0].scrollIntoView(true);", thirdPartySettingsPage.getBusinessSettingsMainMenu());
+        thirdPartySettingsPage.getBusinessSettingsMainMenu().click();
+        actions.perform();
+        thirdPartySettingsPage.getThirdPartySettingsSubMenu().click();
+        actions.perform();
+    }
 
     @Test(priority = 1, groups = {"Opening Pages"})
     public void verifyOpeningGoogleApiTab() {
-
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getGoogleApiKeyTab().click();
         String actualGoogleKeyTextFieldString = driver.findElement(By.cssSelector(":nth-child(3) div.tab-pane.active:nth-child(1)")).getText();
         Assert.assertTrue(actualGoogleKeyTextFieldString.contains("Google key"));
@@ -23,7 +34,7 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningFirebaseKeyTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getFirebasekeyTab().click();
         String actualAddFCMKeyTextFieldString = driver.findElement(By.xpath("//*[@id=\"firebase\"]/div/label")).getText();
         Assert.assertTrue(actualAddFCMKeyTextFieldString.contains("Add FCM key which support both IOS and Android"));
@@ -33,7 +44,7 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningPusherNotificationTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getPusherNotificationTab().click();
         String actualAppIdTextFieldString = driver.findElement(By.xpath("//*[@id=\"pusher\"]/div[3]/label")).getText();
         Assert.assertTrue(actualAppIdTextFieldString.contains("App id"));
@@ -43,7 +54,7 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
     public void verifyOpeningIntercomTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getIntercomTab().click();
         String actualAppIdTextFieldString = driver.findElement(By.xpath("//*[@id=\"intercom\"]/div[3]/label")).getText();
         Assert.assertTrue(actualAppIdTextFieldString.contains("IOS Key"));
@@ -51,9 +62,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 5, groups = {"Opening Pages"})
     public void verifyOpeningMessenteTab() {
-
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getMessenteTab().click();
         String actualFromNameTextFieldString = driver.findElement(By.xpath("//*[@id=\"messente\"]/div[5]/label")).getText();
         Assert.assertTrue(actualFromNameTextFieldString.contains("From Name"));
@@ -61,9 +71,8 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
 
     @Test(priority = 5, groups = {"Opening Pages"})
     public void verifyOpeningDispatcherSettingsTab() {
-
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getDispatcherSettingsTab().click();
         String actualDispatcherTextFieldString = driver.findElement(By.xpath("//*[@id=\"dispatcher-tab\"]/div[1]/label")).getText();
         Assert.assertTrue(actualDispatcherTextFieldString.contains("Dispatcher"));
@@ -73,7 +82,7 @@ public class ThirdPartyTest extends AbstractAcceptanceLoginBefore {
     public void verifOpeningVoipSettingTab() {
 
         ThirdPartySettingsPage thirdPartySettingsPage = new ThirdPartySettingsPage(driver);
-        thirdPartySettingsPage.clickMenuItem();
+        clickMenuItem();
         thirdPartySettingsPage.getVoipSettingTab().click();
         String actualTwilioAppSIdTextFieldString = driver.findElement(By.xpath("//*[@id=\"voip-tab\"]/div[6]/label")).getText();
         Assert.assertTrue(actualTwilioAppSIdTextFieldString.contains("Twilio App SId"));

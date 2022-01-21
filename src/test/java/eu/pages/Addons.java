@@ -66,7 +66,7 @@ public class Addons extends SuperAdminTemplate {
     @FindBy(css = "td:nth-child(6) a:nth-child(3) > i.fa.fa-trash-o")
     WebElement deleteIcon;
 
-    @FindBy(xpath = "//body/div/aside/section/ul[@data-widget='tree']/li[13]/a[1]")
+    @FindBy(xpath = "//span[normalize-space()='Store Management']")
     WebElement storeManagemenMainMenu;
 
     @FindBy(xpath = "//a[normalize-space()='Addons']")
@@ -145,11 +145,7 @@ public class Addons extends SuperAdminTemplate {
         return deleteIcon;
     }
 
-    //Get the location by index of the management store and the adons
-    //public void clickMenuItem() {
-    //clickLeftSubMenuItemByIndex(29, 35);
-    //}
-
+    //Get the location by index of the management store and the addons
     public void clickMenuItem() throws InterruptedException {
         getStoreManagemenMainMenu().click();
         Thread.sleep(5000);

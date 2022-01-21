@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CategoryPage extends SuperAdminTemplate {
+public class CategoryPage {
 
     WebDriver driver;
 
     public CategoryPage(WebDriver driver1) {
-        super(driver1);
+        //  super(driver1);
         driver = driver1;
         PageFactory.initElements(driver1, this);
     }
